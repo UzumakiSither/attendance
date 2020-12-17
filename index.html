@@ -1,9 +1,90 @@
 <html>
 <head>
 <title> hello</title>
+
+<style>
+table {
+background-color : yellow ;
+}
+input {
+color : green ;
+}
+</style>
+
+<script type="text/javascript">
+
+function calc()
+{
+	var p = parseFloat(document.getElementById("a").value);
+	var a = parseFloat(document.getElementById("b").value);
+	var t = p+a;
+	var per = (p/t)*100;
+	var i=0;
+	document.getElementById("c").value = per;
+		
+	if(per>75)
+	{
+		while(per>=75)
+		{
+			t++;
+			per = (p/t)*100;
+			i++;	
+		}
+		i--;
+		document.getElementById("d").value = "you can bunk " + i;
+	}
+	else
+	{
+		while(per<75)
+		{
+			p++;
+			t++;
+			per = (p/t)*100;
+			i++;
+		}
+		document.getElementById("d").value = "need to attend " + i;
+	}
+}
+
+function clr()
+{
+	document.getElementById("a").value = "";
+	document.getElementById("b").value = "";
+	document.getElementById("c").value = "";
+	document.getElementById("d").value = "";
+}
+
+</script>
+
 </head>
 <body>
-Hello bruh
-yolo
+
+<form >
+	<table border = "1" align = "center">
+	<tr>
+		<td>Enter present : </td>
+		<td><input type = "text" id="a"></td>
+	</tr>
+	<tr>
+		<td>Enter absent : </td>
+		<td><input type = "text" id="b"></td>
+	</tr>
+	<tr>
+		<td>Percentage : </td>
+		<td><input type = "text" id="c"></td>
+	</tr>
+	<tr>
+		<td>Class(es) :</td>
+		<td><input type = "text" id="d"></td>
+	</tr>
+	<tr>
+		<td colspan = "2" align="center">
+		<input type="button" onclick="calc()" value="Calculate"> 
+		<input type="button" onclick="clr()" value="Clear"> 
+		</td>
+	</tr>
+	</table>
+</form>
+
 </body>
 </html>
