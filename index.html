@@ -33,7 +33,7 @@ function calc()
 		i--;
 		document.getElementById("d").value = "you can bunk " + i;
 	}
-	else
+	else if(per<75)
 	{
 		while(per<75)
 		{
@@ -43,6 +43,10 @@ function calc()
 			i++;
 		}
 		document.getElementById("d").value = "need to attend " + i;
+	}
+	else
+	{
+		document.getElementById("d").value = "perfect 75";
 	}
 }
 
